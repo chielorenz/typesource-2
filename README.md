@@ -1,38 +1,46 @@
-# create-svelte
+# Typesource
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Typesource is a web app to practice touch typing on source code.
 
-## Creating a project
+## Up and running
 
-If you're seeing this, you've probably already done this step. Congrats!
+Install dependencies:
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+npm install
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Start the dev server
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+## Requirements
 
-To create a production version of your app:
+The MVP will include the "file browser" that is the component to search and pick the source code from Github and the
+"editor" that is the component that renders the source code and let's you play.
 
-```bash
-npm run build
-```
+The file browser:
 
-You can preview the production build with `npm run preview`.
+- [ ] [v0.0.1] Allows the user to search a public repository on github
+- [ ] [v0.0.1] Once the repo is selected it allows the user to navigate folders and files
+- [ ] [v0.0.1] Allows the user to pick a file
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+The editor:
+
+- [ ] [v0.0.1] Displays the source code from a file
+- [ ] [v0.0.1] The source code is hightlighted as a code editor will
+- [ ] [v0.0.1] Once the user starts typing all character are grayed out
+- [ ] [v0.0.1] On each keypress the cursor is moved to the right one step and the character before the cursor is colored if it
+      matches the typed character otherwise the character turns red.
+- [ ] [v0.0.1] Whitespaces at the beginning and the of each line are ignored
+- [ ] [v0.0.2] Allows the user to place the cursor where they whant
+
+We need a way to give the user feedback on how they are going, introducting the "statistics" component.
+
+The statistics:
+
+- [ ] [v0.0.2]Shows the accuracy of the typed characters
+- [ ] [v0.0.2]Shows the elapsed time since the user started typing
+- [ ] [v0.0.2]Shows the words per minutes counter

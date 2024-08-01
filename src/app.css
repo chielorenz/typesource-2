@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+	.scrollbar::-webkit-scrollbar {
+		@apply w-2;
+	}
+
+	.scrollbar::-webkit-scrollbar-track {
+		@apply bg-shark-800 rounded;
+	}
+
+	.scrollbar::-webkit-scrollbar-thumb {
+		@apply bg-shark-600 rounded;
+	}
+}
