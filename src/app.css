@@ -3,15 +3,11 @@
 @tailwind utilities;
 
 @layer utilities {
-	.scrollbar::-webkit-scrollbar {
-		@apply w-2;
+	.scrollbar {
+		scrollbar-color: theme('colors.shark.800') transparent;
 	}
+}
 
-	.scrollbar::-webkit-scrollbar-track {
-		@apply bg-shark-800 rounded;
-	}
-
-	.scrollbar::-webkit-scrollbar-thumb {
-		@apply bg-shark-600 rounded;
-	}
+html {
+	@apply bg-shark-950;
 }

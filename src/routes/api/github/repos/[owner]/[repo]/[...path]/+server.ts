@@ -1,8 +1,6 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import { Octokit } from 'octokit';
-import { GITHUB_TOKEN } from '$env/static/private';
-const octokit = new Octokit({ auth: GITHUB_TOKEN });
+import { octokit } from '$lib/octokit';
 
 export type File = {
 	name: string;
@@ -12,19 +10,14 @@ export type File = {
 };
 
 export const GET: RequestHandler = async ({ params }) => {
-	const { owner, repo, path = '' } = params;
-	const content = await octokit.rest.repos.getContent({ owner, repo, path });
+	const response = await octokit.request('GET /repos/{owner}/{repo}/contents/{path}', params);
 
-	if (Array.isArray(content.data)) {
-		return json({
-			data: content.data.map(({ name, type, path, download_url }) => ({
-				name,
-				type,
-				path,
-				downloadUrl: download_url
-			}))
-		});
-	}
-
-	return json({ data: content.data });
+	return json(
+		response.data.map(({ name, type, path, download_url }) => ({
+			name,
+			type,
+			path,
+			downloadUrl: download_url
+		}))
+	);
 };
